@@ -125,42 +125,68 @@ else:
 ## Напишите программу, в которой вы наглядно посмотрите, как работает цикл for проходя в обратном порядке, то есть, к примеру не от 0 до 10, а от 10 до 0. В уже готовой программе показано вычитание из 100, а вам во время реализации программы будет необходимо придумать свой вариант применения обратного цикла.
 
 ```python
-wave = 'Onsa'
-print(wave * 4)
+mellon = 1000
+for i in range (10, -1, -1):
+    mellon -= i
+    print(i, mellon)
 ```
 ### Результат
-<img width="791" height="331" alt="image" src="https://github.com/user-attachments/assets/545292da-b10f-4041-bf9f-682b713df748" />
+<img width="1006" height="420" alt="image" src="https://github.com/user-attachments/assets/169f9fe0-e121-40d0-905c-7265a6d79ca2" />
+
 
 # Лабораторные работа 8
 ## Напишите программу используя цикл while, внутри которого есть какие-либо проверки, но быть осторожным, поскольку циклы while при неправильно написанных условиях могут становится бесконечными, как указано в примере далее.
 
 ```python
-wave = 'Hello World'
-print(wave.count('o'))
+mellon = 0
+while mellon < 100:
+    if mellon == 0:
+        mellon += 10
+    elif mellon // 5 > 1:
+        mellon *= 5
+    else:
+        mellon -= 5
+    print(mellon)
 ```
 
 ### Результат
-<img width="790" height="330" alt="image" src="https://github.com/user-attachments/assets/43c2c4fd-9396-45a3-b4cc-cb685b8e44e5" />
+<img width="979" height="287" alt="image" src="https://github.com/user-attachments/assets/580555d0-8d61-4d7b-94e5-67ce50c9fe9d" />
+
 
 # Лабораторные работа 9
 ## Напишите программу с использованием вложенных циклов и одной проверкой внутри них. 
 
 ```python
-print('Hello \nWorld')
+mellon = 0
+for i in range(10):
+    for j in range(10):
+        if i != j:
+            mellon += j
+        else:
+            pass
+print(mellon)
 ```
 ### Результат
-<img width="790" height="327" alt="image" src="https://github.com/user-attachments/assets/56aeb6bc-72a1-47f1-9163-0d1f4f562dc4" />
+<img width="772" height="206" alt="image" src="https://github.com/user-attachments/assets/66ce47b1-4200-4089-b50d-da4447856e40" />
+
 
 # Лабораторные работа 10
 ## Напишите программу с использованием flag, которое будет определять есть ли нечетное число в массиве. В данной задаче flag выступает в роли индикатора встречи нечетного числа в исходном массиве, четных чисел.
 
 ```python
-wave = 'Hello World'
-print(wave[1])
-print(wave[:5])
+mellon = [2, 6, 14, 18, 21]
+flag = False
+for i in mellon:
+    if i % 2 == 1:
+        flag = True
+if flag is True:
+    print('В массиве есть нечётное число')
+else:
+    print('В массиве все числа четные')
 ```
 ### Результат
-<img width="789" height="331" alt="image" src="https://github.com/user-attachments/assets/7e75e234-43f4-402c-a8d0-4fd60c1dbc37" />
+<img width="771" height="205" alt="image" src="https://github.com/user-attachments/assets/434c545a-d2a2-4b24-877f-5d1e69986679" />
+
 
 
 # Самостоятельная работа 1
