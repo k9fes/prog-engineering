@@ -301,6 +301,7 @@ memory=string
 print(memory)
 ```
 ### Результат
+<img width="829" height="431" alt="image" src="https://github.com/user-attachments/assets/b97b1254-8f80-4339-a8a1-6372b6e3ff8f" />
 
 ## Вывод
 С помощью частей кода получилась цельная программа.
