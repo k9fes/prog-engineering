@@ -9,7 +9,7 @@
 |  Задание 2  |    +        |      +     |
 |  Задание 3  |    +        |      +     |
 |  Задание 4  |    +        |      +     |
-|  Задание 5  |    +        |            |
+|  Задание 5  |    +        |      +     |
 |  Задание 6  |    +        |            |
 |  Задание 7  |    +        |            |
 |  Задание 8  |    +        |            |
@@ -287,11 +287,23 @@ print("Заканчивается на 'end':", melon.endswith("end"))
 ## Составьте программу, результатом которой будет данный вывод в консоль. Программу нужно составить из данных фрагментов кода.
 
 ```python
-day, month, year = 20, "сентября", 2025;
-print(f"Сегодня {day} {month} {year}.", end=" Всего хорошего!")
+memory = ' world'
+string = "hello"
+values = [0,2,4,6,8,10]
+counter = 0
+while counter!=10:
+    if counter in values:
+        print(string + memory)
+        print(string)
+    counter+=1
+string = string+ " world"
+memory=string
+print(memory)
 ```
 ### Результат
-<img width="792" height="337" alt="image" src="https://github.com/user-attachments/assets/9e605886-8b9e-40df-b08d-59cb3dd11cb4" />
+
+
+
 
 ## Вывод
 
