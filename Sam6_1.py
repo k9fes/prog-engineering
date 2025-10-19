@@ -1,0 +1,5 @@
+watermelon = input("Введите числа через пробел: ")
+melon_list = list(map(int, watermelon.split()))
+melon_tuple = tuple(melon_list)
+print(melon_list)
+print(melon_tuple)
