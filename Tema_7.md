@@ -6,15 +6,15 @@
 | Задание     | Лаб_Раб     | Сам_Раб     | 
 | ----------- | ----------- | ----------- |
 |  Задание 1  |     +       |           |
-|  Задание 2  |            |           |
-|  Задание 3  |            |           |
-|  Задание 4  |            |           |
-|  Задание 5  |            |           |
-|  Задание 6  |            |           |
-|  Задание 7  |            |           |
-|  Задание 8  |            |           |
-|  Задание 9  |            |           |
-|  Задание 10  |            |           |
+|  Задание 2  |     +       |           |
+|  Задание 3  |     +       |           |
+|  Задание 4  |     +       |           |
+|  Задание 5  |     +       |           |
+|  Задание 6  |     +       |           |
+|  Задание 7  |     +       |           |
+|  Задание 8  |     +       |           |
+|  Задание 9  |     +       |           |
+|  Задание 10 |    +        |           |
 
 # Лабораторные работа 1
 ## Составьте текстовый файл и положите его в одну директорию с программой на Python. Текстовый файл должен состоять минимум из двух строк.
@@ -76,45 +76,90 @@ with open('input.txt') as f:
 <img width="665" height="235" alt="image" src="https://github.com/user-attachments/assets/76c487fa-51ab-4b4d-b86d-3c3d859fc8cd" />
 
 # Лабораторные работа 6
-## 
+## Напишите программу, которая будет добавлять новую строку в ваш файл, а потом выведет полученный файл в консоль. Вывод можно осуществлять любым способом. Обязательно проверьте сам файл, чтобы изменения в нем тоже отображались.
 ```python
+with open('input.txt', 'a+') as f:
+    f.write('\n Im like Hu Tao')
 
+with open('input.txt', 'r') as f:
+    result = f.readlines()
+    print(result)
 ```
 
 ### Результат
+<img width="903" height="602" alt="image" src="https://github.com/user-attachments/assets/fd14b7ff-0fb3-48c6-8fee-61361e0b4bda" />
 
 # Лабораторные работа 7
-## 
+## Напишите программу, которая перепишет всю информацию, которая была у вас в файле до этого, например напишет любые данные из произвольно вами составленного списка. Также не забудьте проверить что измененная вами информация сохранилась в файле.
 ```python
-
+melon = ['One','two','three']
+with open ('input.txt', 'w') as f:
+    for line in melon:
+        f.write('\nCycle run ' + line)
+    print('Done!')
 ```
 
 ### Результат
+<img width="652" height="422" alt="image" src="https://github.com/user-attachments/assets/56a20876-7606-4208-a6a9-3c8e34973558" />
 
 # Лабораторные работа 8
 ## 
 ```python
+import os
 
+def print_docs(directory):
+    all_files = os.walk(directory)
+    for catalog in all_files:
+        print(f'Папка {catalog[0]} Сожержит: ')
+    print(f'Директории: {"," .join([folder for folder in catalog[1]])}')
+    print(f'Файлы: {"," .join([file for file in catalog[2]])}')
+    print('-' * 40)
+
+print_docs('D:/мемы')
 ```
 
 ### Результат
+<img width="898" height="314" alt="image" src="https://github.com/user-attachments/assets/d8e60c99-d70b-4e8f-b980-36891cbbc037" />
 
 # Лабораторные работа 9
 ## 
 ```python
+def longest_words(file):
+    with open(file, encoding='utf-8') as f:
+        words = f.read().split()
+        max_length = len(max(words, key=len))
+        for word in words:
+            if len(word) == max_length:
+                sought_word = word
+
+        if len(sought_word) == 1:
+            return sought_word[0]
+        return sought_word
+
+print(longest_words('input.txt'))
 
 ```
 
 ### Результат
+<img width="884" height="281" alt="image" src="https://github.com/user-attachments/assets/532f96c4-d1b4-45a5-83b5-22be33d23931" />
 
 # Лабораторные работа 10
 ## 
 ```python
+import csv
+import datetime
+import time
 
+with open("rows_300.csv",'w', encoding='utf-8', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(['№','Секунда', 'Микросекунда'])
+    for line in range(1,301):
+        writer.writerow([line, datetime.datetime.now().second, datetime.datetime.now().microsecond])
+        time.sleep(0.01)
 ```
 
 ### Результат
-
+<img width="603" height="956" alt="image" src="https://github.com/user-attachments/assets/4fa56ce4-4942-4b0b-8cf3-78881b61e83e" />
 
 # Самостоятельная работа 1
 ## 
