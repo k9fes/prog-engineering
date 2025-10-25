@@ -5,53 +5,109 @@
   
 | Задание     | Лаб_Раб     | Сам_Раб     | 
 | ----------- | ----------- | ----------- |
-|  Задание 1  |            |           |
+|  Задание 1  |     +       |           |
 |  Задание 2  |            |           |
 |  Задание 3  |            |           |
 |  Задание 4  |            |           |
 |  Задание 5  |            |           |
-
+|  Задание 6  |            |           |
+|  Задание 7  |            |           |
+|  Задание 8  |            |           |
+|  Задание 9  |            |           |
+|  Задание 10  |            |           |
 
 # Лабораторные работа 1
 ## Составьте текстовый файл и положите его в одну директорию с программой на Python. Текстовый файл должен состоять минимум из двух строк.
 
 ```
-
+Miyabi likes melon!
+Melon doesn't like Miyabi!
 ```
 
 ### Результат
+<img width="249" height="92" alt="image" src="https://github.com/user-attachments/assets/5dc4f780-f656-4acd-8f3a-549d73d44f8a" />
 
 
 # Лабораторные работа 2
-## 
+## Напишите программу, которая выведет только первую строку из вашего файла, при этом используйте конструкцию open()/close().
 
 ```python
-
+f = open('input.txt', 'r')
+print(f.readline())
+f.close()
 ```
 
 ### Результат
+<img width="572" height="235" alt="image" src="https://github.com/user-attachments/assets/048c2f6f-4c93-4b6e-a968-1445d868d2f0" />
 
 
 # Лабораторные работа 3
-## 
+## Напишите программу, которая выведет все строки из вашего файла в массиве, при этом используйте конструкцию open()/close().
 
 ```python
-
+f = open('input.txt', 'r')
+print(f.readlines())
+f.close()
 ```
 
 ### Результат
+<img width="673" height="216" alt="image" src="https://github.com/user-attachments/assets/13f8aa49-7fae-4175-9552-65443ef3ba36" />
 
 # Лабораторные работа 4
 ##
 
 ```python
+with open('input.txt') as f:
+    print(f.readlines())
+```
+
+### Результат
+<img width="675" height="216" alt="image" src="https://github.com/user-attachments/assets/a21798b9-1bca-4b70-b5cd-5dd9c05c35cd" />
+
+# Лабораторные работа 5
+## Напишите программу, которая выведет каждую строку из вашего файла отдельно, при этом используйте конструкцию with open().
+```python
+with open('input.txt') as f:
+    for line in f:
+        print(line)
+```
+
+### Результат
+<img width="665" height="235" alt="image" src="https://github.com/user-attachments/assets/76c487fa-51ab-4b4d-b86d-3c3d859fc8cd" />
+
+# Лабораторные работа 6
+## 
+```python
 
 ```
 
 ### Результат
 
+# Лабораторные работа 7
+## 
+```python
 
-# Лабораторные работа 5
+```
+
+### Результат
+
+# Лабораторные работа 8
+## 
+```python
+
+```
+
+### Результат
+
+# Лабораторные работа 9
+## 
+```python
+
+```
+
+### Результат
+
+# Лабораторные работа 10
 ## 
 ```python
 
