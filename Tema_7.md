@@ -5,10 +5,10 @@
   
 | Задание     | Лаб_Раб     | Сам_Раб     | 
 | ----------- | ----------- | ----------- |
-|  Задание 1  |     +       |           |
-|  Задание 2  |     +       |           |
-|  Задание 3  |     +       |           |
-|  Задание 4  |     +       |           |
+|  Задание 1  |     +       |    +       |
+|  Задание 2  |     +       |    +       |
+|  Задание 3  |     +       |    +       |
+|  Задание 4  |     +       |    +       |
 |  Задание 5  |     +       |           |
 |  Задание 6  |     +       |           |
 |  Задание 7  |     +       |           |
@@ -162,58 +162,151 @@ with open("rows_300.csv",'w', encoding='utf-8', newline='') as f:
 <img width="603" height="956" alt="image" src="https://github.com/user-attachments/assets/4fa56ce4-4942-4b0b-8cf3-78881b61e83e" />
 
 # Самостоятельная работа 1
-## 
+## Найдите в интернете любую статью (объем статьи не менее 200 слов), скопируйте ее содержимое в файл и напишите программу, которая считает количество слов в текстовом файле и определит самое часто встречающееся слово. Результатом выполнения задачи будет: скриншот файла со статьей, листинг кода, и вывод в консоль, в котором будет указана вся необходимая информация. 
 
 ```python
+from collections import Counter
+import re
 
+with open("statia.txt", "r", encoding="utf-8") as file:
+    text = file.read()
+
+words = re.findall(r'\b\w+\b', text.lower())
+word_count = len(words)
+most_common_word, count = Counter(words).most_common(1)[0]
+
+print(f"Общее количество слов: {word_count} ")
+print(f"Самое частое слово: '{most_common_word}' (встречается {count} раз)")
 ```
 
 ### Результат
+<img width="699" height="331" alt="image" src="https://github.com/user-attachments/assets/0bd4c753-7c23-4b09-bdc7-f41a61ed8211" />
+
+<img width="1389" height="871" alt="image" src="https://github.com/user-attachments/assets/1c823c6c-f284-4b8c-af64-269359c3847e" />
 
 
 ### Вывод
-
+Анализирует текстовый файл, подсчитывает общее количество слов и определяет наиболее часто встречающееся слово обрабатывая текст на русском языке, игнорируя знаки препинания. 
 
 # Самостоятельная работа 2
-## 
+## У вас появилась потребность в ведении книги расходов, посмотрев все существующие варианты вы пришли к выводу что вас ничего не устраивает и нужно все делать самому. Напишите программу для учета расходов. Программа должна позволять вводить информацию о расходах, сохранять ее в файл и выводить существующие данные в консоль. Ввод информации происходит через консоль. Результатом выполнения задачи будет: скриншот файла с учетом расходов, листинг кода, и вывод в консоль, с демонстрацией работоспособности программы.
 
 ```python
+def add_expense():
+    amount = input("Введите сумму расхода: ")
+    category = input("Введите категорию расхода: ")
+    with open("rashod.txt", "a", encoding="utf-8") as file:
+        file.write(f"{amount} {category}\n")
 
+def show_expenses():
+    try:
+        with open("rashod.txt", "r", encoding="utf-8") as file:
+            print("История расходов:")
+            for line in file:
+                print(line.strip())
+    except FileNotFoundError:
+        print("Файл с расходами пуст.")
+
+while True:
+    action = input("1 - Добавить расход, 2 - Показать расходы, 3 - Выход: ")
+    if action == "1":
+        add_expense()
+    elif action == "2":
+        show_expenses()
+    elif action == "3":
+        break
 ```
 
 ### Результат
-
+<img width="890" height="866" alt="image" src="https://github.com/user-attachments/assets/5966248e-a91c-41f7-b0b2-85c124afc0f4" />
 
 ### Вывод
-
+Реализована простая система учёта расходов. Программа обеспечивает создание и чтение записей через консольный интерфейс. Данные persistently сохраняются в файле, что позволяет вести долговременный учёт. 
 
 # Самостоятельная работа 3
-## 
+## Имеется файл input.txt с текстом на латинице. Напишите программу, которая выводит следующую статистику по тексту: количество букв латинского алфавита; число слов; число строк.
 
 ```python
+with open("input.txt", "r", encoding="utf-8") as file:
+    lines = file.readlines()
 
+letter_count = sum(len([ch for ch in line if ch.isalpha()]) for line in lines)
+word_count = sum(len(line.split()) for line in lines)
+line_count = len(lines)
+
+print("Входной файл содержит:")
+print(f"{letter_count} букв")
+print(f"{word_count} слов")
+print(f"{line_count} строк")
 ```
 
 ### Результат
-
+<img width="765" height="283" alt="image" src="https://github.com/user-attachments/assets/fa836030-358b-4a1d-8136-f5e396c12bcd" />
 
 ### Вывод
-
+Программа анализирует  файл, подсчитывая количество букв, слов и строк. Алгоритм учитывает только буквенные символы.
 
 # Самостоятельная работа 4
-## 
+## Напишите программу, которая получает на вход предложение, выводит его в терминал, заменяя все запрещенные слова звездочками * (количество звездочек равно количеству букв в слове). Запрещенные слова, разделенные символом пробела, хранятся в текстовом файле input.txt. Все слова в этом файле записаны в нижнем регистре. Программа должна заменить запрещенные слова, где бы они ни встречались, даже в середине другого слова. Замена производится независимо от регистра: если
+файл input.txt содержит запрещенное слово exam, то слова exam, Exam, ExaM, EXAM и exAm должны быть заменены на ****. Запрещенные слова: hello email python the exam wor is
 
 ```python
+def load_forbidden_words(filename):
+    try:
+        with open(filename, 'r', encoding='utf-8') as file:
+            content = file.read().strip()
+            return content.split()
+    except FileNotFoundError:
+        print(f"Файл {filename} не найден")
+        return []
 
+
+def censor_text(text, forbidden_words):
+    result = text
+
+    for word in forbidden_words:
+
+        start = 0
+        while True:
+
+            index = result.lower().find(word.lower(), start)
+            if index == -1:
+                break
+
+            original_word = result[index:index + len(word)]
+
+            stars = '*' * len(original_word)
+            result = result[:index] + stars + result[index + len(word):]
+
+            start = index + len(stars)
+
+    return result
+
+
+def main():
+    forbidden_words = load_forbidden_words('Запрещёные_слова.txt')
+
+    test_text = """Hello, world! Python IS the programming language of thE future. 
+My EMAIL is....
+PYTHON is awesome!!!!"""
+
+    censored_text = censor_text(test_text, forbidden_words)
+
+    print(censored_text)
+
+
+if __name__ == "__main__":
+    main()
 ```
 
 ### Результат
+<img width="841" height="270" alt="image" src="https://github.com/user-attachments/assets/e855311f-0405-4447-a5af-79e5de54e0fa" />
 
 
 ### Вывод
-
+Разработан эффективный фильтр контента, который заменяет запрещённые слова на звёздочки независимо от регистра.
 # Самостоятельная работа 5
-## 
+## Самостоятельно придумайте и решите задачу, которая будет взаимодействовать с текстовым файлом.
 
 ```python
 
